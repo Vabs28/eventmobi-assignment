@@ -1,6 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Button from './components/Button/Button';
+import TextInput from './components/TextInput/TextInput';
+import Error from './components/Error/Error';
+import Loader from './components/Loader/Loader';
 
 function App() {
   return (
@@ -17,6 +21,10 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
+          <Button label='Submit' onClick={() => {}}></Button>
+          <TextInput inputType='text' onChange={()=>{}} placeholder='hello'/>
+          <Error></Error>
+          <Loader></Loader>
         </a>
       </header>
     </div>
