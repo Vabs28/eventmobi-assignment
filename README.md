@@ -28,3 +28,6 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+## Improvements
+1) More Unit tests are required to improve the coverage
+2) SCSS can be used to handle CSS efficiently if the project grows
