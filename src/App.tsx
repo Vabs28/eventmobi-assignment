@@ -1,33 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Button from './components/Button/Button';
-import TextInput from './components/TextInput/TextInput';
-import Error from './components/Error/Error';
-import Loader from './components/Loader/Loader';
+import SearchPage from './pages/SearchPage/SearchPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-          <Button label='Submit' onClick={() => {}}></Button>
-          <TextInput inputType='text' onChange={()=>{}} placeholder='hello'/>
-          <Error></Error>
-          <Loader></Loader>
-        </a>
-      </header>
-    </div>
+    <SearchPage />
   );
 }
 

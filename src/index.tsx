@@ -8,10 +8,22 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from 'react-router-dom';
+import ViewGists from './pages/ViewGists/ViewGists';
+import ViewForks from './pages/ViewForks/ViewForks';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <Error />,
+  },
+  {
+    path: "/users/:username/gists",
+    element: <ViewGists />,
+    errorElement: <Error />,
+  },
+  {
+    path: "/users/:username/gists/:gistsid/forks",
+    element: <ViewForks />,
     errorElement: <Error />,
   }
 ]);
