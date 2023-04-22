@@ -10,7 +10,7 @@ The project can be debugged in VS Code by following below steps
 
 In the project directory, you can run:
 
-### `npm start` 
+### `npm run start` 
 
 Runs the app in the development mode.
 
@@ -29,5 +29,6 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ## Improvements
-1) More Unit tests are required to improve the coverage
-2) SCSS can be used to handle CSS efficiently if the project grows
+1) More Unit tests are required to improve the coverage.
+2) SCSS can be used to handle CSS efficiently if the project grows.
+3) Components can be made more rich, interactive and intuitive or library like Material UI can be used.
