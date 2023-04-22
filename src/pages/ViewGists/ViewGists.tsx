@@ -6,6 +6,12 @@ import {getGistsByUsername} from './state/GetGistsActions';
 import Loader from '../../components/Loader/Loader';
 import Error from '../../components/Error/Error';
 
+interface GistsRecordsType {
+    public: boolean, 
+    id: string, 
+    files: Array<object>
+}
+
 export default function ViewGists() {
     const navigate = useNavigate();
     const [state, dispatch] = useReducer(reducer, getGistsInitialState);
@@ -23,11 +29,14 @@ export default function ViewGists() {
         const id = event.currentTarget.getAttribute('data-id');
         navigate(`/users/${username}/gists/${id}/forks`);
     }
-    function getPublicGists(records: any) {
-        // return only public gists
-        return records.filter((record: any) => record.public);
+
+    // return only public gists
+    function getPublicGists(records: Array<GistsRecordsType>) {
+        return records.filter((record) => record.public);
     }
-    function getUniqueFileExtensions(gistRecord: any) {
+
+    // Get unique file extensions to create tags
+    function getUniqueFileExtensions(gistRecord: {public: boolean, id: string,files: object}) {
         // Get All the file extensions
         const fileExtensions = Object.keys(gistRecord.files).map( (element) => {
             const fileNameSplits = element.split(".");
@@ -36,10 +45,11 @@ export default function ViewGists() {
         // remove the duplicates
         return Array.from(new Set(fileExtensions));
     }
+
     // render a list with received records
-    function renderData(records: Array<object>) {
+    function renderData(records: Array<GistsRecordsType>) {
        const publicRecords = getPublicGists(records);
-       const elements = publicRecords.map((record: any) => {
+       const elements = publicRecords.map((record) => {
         const uniqueFileExtensions = getUniqueFileExtensions(record);
         
         return (<li key={record.id} data-id={record.id} onClick={onListItemClick}>
@@ -56,7 +66,7 @@ export default function ViewGists() {
             <h4>Select one to continue</h4>
             {state.loading ? (<Loader />) : (
                 isError ? (<Error message="An Error Occurred or no data present for the user" />) :
-                <ul>{ renderData(state.data as Array<object>) }</ul>
+                <ul>{ renderData(state.data as Array<GistsRecordsType>) }</ul>
             )}
         </>
     ) 
