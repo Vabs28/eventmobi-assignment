@@ -19,7 +19,7 @@ export default function SearchPage() {
         <>
             <h1>Search Gists by Username</h1>
             <TextInput placeholder="Enter username here" onChange={onChangeInput} inputType="text"></TextInput>
-            <Button label="Search Gists" onClick={navigateToListPage} isDisabled={username ? false : true}></Button>
+            <Button label="Submit" onClick={navigateToListPage} isDisabled={username ? false : true}></Button>
         </>
     )
 };
